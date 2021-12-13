@@ -12,6 +12,8 @@ contains a root Widget.
 '''
 
 import kivy
+# import os
+# os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
 
 kivy.require('1.0.7')
 
