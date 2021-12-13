@@ -1,0 +1,6 @@
+
+#obrazki
+Pillow
+
+#gui
+kivy
