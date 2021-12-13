@@ -6,6 +6,29 @@ from kivy.uix.popup import Popup
 
 import os
 
+"""
+Na Windows, szczególnie na VM, jest problem z OpenGL pokazującym wersję 1.1; 
+
+Obejście: 
+- wykorzystać Mesa3D, https://askubuntu.com/questions/1238523/enabling-opengl-in-windows-10-guest-vm-in-qemu
+  (opowiedź usera Chris):
+- ściągnąć https://github.com/pal1000/mesa-dist-win/releases i rozpakować
+- uruchomić systemwidedeploy.cmd
+- wybrać "1" z tego
+-------------------------------------
+Mesa3D system-wide deployment utility
+-------------------------------------
+Please make a deployment choice:
+1. Core desktop OpenGL drivers
+2. Core desktop OpenGL drivers + Intel swr
+3. Install DirectX IL for redistribution only
+(...)
+- odkomentować linię poniżej
+
+"""
+os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
+
+
 
 class LoadDialog(FloatLayout):
     load = ObjectProperty(None)
