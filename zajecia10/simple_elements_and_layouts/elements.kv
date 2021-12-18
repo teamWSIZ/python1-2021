@@ -2,7 +2,7 @@
 
 # https://kivy.org/doc/stable/guide/lang.html
 
-Root:
+MainWidget:
     orientation: 'vertical'
     id: top_widget
 
@@ -13,50 +13,61 @@ Root:
 
     Image:
         id: img_xx
-        source: 'pic.jpg'
+        source: 'tree.png'
 
     TextInput:
-        id: text_input
+        id: maininput
         size_hint_y: None
         height: 30
         multiline: False
 
+    BottomMenu:
+        input_: maininput  #binding własności BottomMenu do komponentów instancji MainWidget
 
-    Second:
-        id: bottom_menu
-        text_output: text_output
 
+# style dla wszystkich TextInput-ów
+<TextInput>:
+    background_color: (0.4,0.4,0.4) if self.focus else (0.3,0.3,0.3)
+    foreground_color: (0.9,0.9,0.9)
+
+
+# style dla wszystkich instancji klasy BottomMenu (jest tylko jedna ↑↑, ale mniejsza z tym)
+<BottomMenu>:
+    # reguły dla _tej_ instancji klasy Second
+    id: bottom_menu
+    xxx: yyy    #podłączenie do ObjectProperty pola klasy BottomMenu
+
+    size_hint_y: None
+    height: 80
+
+    Label:
+        id: yyy
         size_hint_y: None
-        height: 80
-
-        Label:
-            id: text_output
-            size_hint_y: None
-            height: 30
-            text: '-----'
+        height: 30
+        text: '-----'
 
 
-        Button:
-            size_hint_y: None
-            height: 30
-            text: 'Hello from test.kv!'
-            on_release: img_xx.source = 'kali.png'
+    Button:
+        size_hint_y: None
+        height: 30
+        text: 'Hello from test.kv!'
+        on_release: img_xx.source = 'kali.png'
 
-        Button:
-            size_hint_y: None
-            height: 30
-            text: 'Execute new function'
-            on_release: bottom_menu.new_function()
+    Button:
+        size_hint_y: None
+        height: 30
+        text: 'Execute new function'
+        on_release: bottom_menu.new_function()
 
-        Button:
-            size_hint_y: None
-            height: 30
-            text: 'Compute square'
-            on_release: bottom_menu.compute_square_from_input(text_input.text)
+    Button:
+        size_hint_y: None
+        height: 30
+        text: 'Compute square'
+        on_release: bottom_menu.compute_square_from_input(root.input_.text) #root to instancja klasy BottomMenu
 
 
-        Button:
-            size_hint_y: None
-            height: 30
-            text: 'Second button'
-            on_release: bottom_menu.print_something()   #x-ref to parent.parent
+    Button:
+        size_hint_y: None
+        height: 30
+        text: 'Second button'
+        on_release: bottom_menu.print_something()   #x-ref to parent.parent
