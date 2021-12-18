@@ -1,0 +1,28 @@
+#:kivy 1.0
+
+BoxLayout:
+    orientation: 'vertical'
+    Label:
+        text: 'Top label !!!'
+    Button:
+        size_hint_y: None
+        height: 80
+        text: 'nowy button'
+
+    TextInput:
+        id: text_input
+        size_hint_y: None
+        height: 30
+        multiline: False
+
+    BoxLayout:
+        size_hint_y: None
+        height: 80
+        Button:
+            size_hint_y: None
+            height: 30
+            text: 'Hello from test.kv!'
+        Button:
+            size_hint_y: None
+            height: 30
+            text: 'Second button'

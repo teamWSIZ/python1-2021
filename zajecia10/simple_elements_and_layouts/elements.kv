@@ -5,6 +5,7 @@
 Root:
     orientation: 'vertical'
     id: top_widget
+
     Label:
         size_hint_y: None
         height: 30
@@ -20,15 +21,39 @@ Root:
         height: 30
         multiline: False
 
+
     Second:
         id: bottom_menu
+        text_output: text_output
+
         size_hint_y: None
         height: 80
+
+        Label:
+            id: text_output
+            size_hint_y: None
+            height: 30
+            text: '-----'
+
+
         Button:
             size_hint_y: None
             height: 30
             text: 'Hello from test.kv!'
             on_release: img_xx.source = 'kali.png'
+
+        Button:
+            size_hint_y: None
+            height: 30
+            text: 'Execute new function'
+            on_release: bottom_menu.new_function()
+
+        Button:
+            size_hint_y: None
+            height: 30
+            text: 'Compute square'
+            on_release: bottom_menu.compute_square_from_input(text_input.text)
+
 
         Button:
             size_hint_y: None
