@@ -26,6 +26,10 @@ class MarathonRunner:  # klasa
     race_no: int  # pola klasy
     country: str
     category: str
+    official_time: int = 0
+    time_10k: int = 0
+    time_half: int = 0
+
 
 
 if __name__ == '__main__':
