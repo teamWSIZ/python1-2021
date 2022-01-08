@@ -1,4 +1,4 @@
-from zajecia11.a import MarathonRunner
+from zajecia11.runners_classes import MarathonRunner
 
 runners = []
 with open('challenge.csv') as f:
