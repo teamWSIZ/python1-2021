@@ -23,7 +23,7 @@ class BottomMenu(BoxLayout):
         print('OK')
 
     def new_function(self):
-        print('new text')
+        print('new text!!!')
 
     def compute_square_from_input(self, text):
         print(f'w polu napisano: {text}')
