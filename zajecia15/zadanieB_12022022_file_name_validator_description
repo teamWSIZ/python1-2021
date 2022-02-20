@@ -1,0 +1,21 @@
+Piszemy walidator nazw plików. Od nazwy pliku rządamy, aby:
+   - zawierała wyłącznie duże i małe litery alfabetu , czyli znaki A-Z, lub a-z, lub
+   - cyfry, czyli znaki 0-9
+   - dodatkowe znaki "_", ".", "-", przy czym znaki te nie mogą pozostać na początku/końcu nazwy,
+     oraz nazwa nie może mieć więcej niż pojedynczej ".",
+
+   Proszę napisać funkcję make_valid(filename: str) -> str, która:
+   - zamieni polskie litery na zwykłe wg. typowej reguły, tzn. ą→a, ł→l, ż→z, ź→z, itd, i podobnie dla liter dużych,
+   - usunie wszystkie niedozwolone znaki,
+   - w przypadku złych znaków na początku/końcu nazwy również je usunie,
+   - w przypadku, gdy pozostanie nazwa krótsza niż 2-znakowa, podniesie wyjątek (RuntimeError)
+
+   expected:
+   password contains alphabetical letters without polish letters -> lowercase or uppercase
+   or
+   password contains numbers 0-9
+
+   can contain "_", ".", "-" but -> not at the beggining or end of string (remove them, or other unaccepted signs)
+   cannot contain ".."
+
+   if password after cutting wrong characters is <2, then error
